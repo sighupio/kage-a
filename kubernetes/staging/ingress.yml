@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: one-a-backend-internal
+  # annotations:
+  # kubernetes.io/ingress.class: internal
+  # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  labels:
+    app: one-a
+    project: one-a
+spec:
+  rules:
+    - host: one-a.kage.demos.sighup.io
+      http:
+        paths:
+          - path: "/"
+            backend:
+              serviceName: one-a
+              servicePort: http
