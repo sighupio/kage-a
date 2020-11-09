@@ -35,7 +35,7 @@ func main() {
 	router.GET("/do-stuff", func(c *gin.Context) {
 		n, err := numberFromServiceB(serviceB)
 		if err != nil {
-			c.String(http.StatusOK, fmt.Sprint(n))
+			c.String(http.StatusOK, fmt.Sprint(n+1))
 		} else {
 			c.String(http.StatusInternalServerError, "Sorry... something went wrong")
 		}
