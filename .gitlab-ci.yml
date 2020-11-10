@@ -21,8 +21,7 @@ build_and_push_staging:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
   script:
-    - echo $GITLAB_CI_TOKEN
-    - docker login -u=gitlab-ci-user -p=$GITLAB_CI_TOKEN
+    - docker login reg.sighup.io -u=gitlab-ci-user -p=$GITLAB_CI_TOKEN
     - docker build --network=host --tag reg.sighup.io/kage/one-a:$CI_COMMIT_SHORT_SHA .
     - docker push reg.sighup.io/kage/one-a:$CI_COMMIT_SHORT_SHA
   tags:
