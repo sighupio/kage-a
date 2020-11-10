@@ -22,7 +22,7 @@ spec:
       serviceAccountName: one-a
       containers:
         - name: one-a
-          image: "one-a:latest"
+          image: quay.io/sighup/one-a:latest
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

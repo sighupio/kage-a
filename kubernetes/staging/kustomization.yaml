@@ -3,12 +3,12 @@ kind: Kustomization
 namespace: kage-demo
 
 patchesJson6902:
-  - target:
+  - path: patch/ingress-host.yml
+    target:
       group: extensions
-      version: v1beta1
       kind: Ingress
       name: one-a-backend-internal
-    path: patch/ingress-host.yml
+      version: v1beta1
 
 resources:
   - deploy.yml
