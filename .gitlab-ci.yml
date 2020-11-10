@@ -1,6 +1,12 @@
 variables:
   GIT_DEPTH: 1
 
+workflow:
+  rules:
+    - if: $ENVIRONMENT_SUFFIX
+      when: always
+    - when: never
+
 stages:
   - build
   - deploy
