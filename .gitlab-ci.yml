@@ -3,7 +3,13 @@ variables:
 
 workflow:
   rules:
-    - if: $ENVIRONMENT_SUFFIX
+    - if: '$CI_PIPELINE_SOURCE == "api"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "cross_project_pipeline"'
       when: always
     - when: never
 
