@@ -2,14 +2,9 @@ variables:
   GIT_DEPTH: 1
 
 workflow:
+  # Start pipeline only when triggered by API
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "api"'
-      when: always
-    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
-      when: always
     - if: '$CI_PIPELINE_SOURCE == "trigger"'
-      when: always
-    - if: '$CI_PIPELINE_SOURCE == "cross_project_pipeline"'
       when: always
     - when: never
 
