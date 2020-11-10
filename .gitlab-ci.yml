@@ -34,6 +34,8 @@ deploy_staging:
   before_script:
     - cd kubernetes/staging
   script:
+    - echo $ENVIRONMENT_NAME
+    - echo $ENVIRONMENT_SUFFIX
     - sed -i "s/@@ENVIRONMENT_SUFFIX@@/$ENVIRONMENT_SUFFIX/g" patch/ingress-host.yml
     - kustomize build > /dev/null
     - kustomize edit set image reg.sighup.io/kage/one-a:$CI_COMMIT_SHORT_SHA
