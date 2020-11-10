@@ -1,3 +1,3 @@
 - op: "replace"
   path: "/spec/rules/0/host"
-  value: one-a-@@ENVIRONMENT_PREFIX@@.kage.demos.sighup.io
+  value: one-a-@@ENVIRONMENT_SUFFIX@@.kage.demos.sighup.io

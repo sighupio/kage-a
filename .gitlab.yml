@@ -25,7 +25,7 @@ deploy_staging:
   before_script:
     - cd kubernetes/staging
   script:
-    - sed -i "s/@@ENVIRONMENT_PREFIX@@/$ENVIRONMENT_PREFIX/g" patch/ingress-host.yml
+    - sed -i "s/@@ENVIRONMENT_SUFFIX@@/$ENVIRONMENT_SUFFIX/g" patch/ingress-host.yml
     - kustomize build > /dev/null
     - kustomize edit set imagetag 123456.dkr.ecr.eu-west-1.amazonaws.com/one-a:$CI_COMMIT_SHORT_SHA
     - kustomize build | kubectl apply -f -
