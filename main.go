@@ -32,6 +32,16 @@ func main() {
 		panic("Missing SERVICE_B_HOST environment variable")
 	}
 
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "<html>"+
+			"<ul>"+
+			"<li><a href=\"/ping\">Ping</ping></li>"+
+			"<li><a href=\"/do-stuff\">Show me the stuff</ping></li>"+
+			"</ul>"+
+			"</html>",
+			gin.H{})
+	})
+
 	router.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong!")
 	})
