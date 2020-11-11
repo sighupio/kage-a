@@ -32,6 +32,10 @@ func main() {
 		panic("Missing SERVICE_B_HOST environment variable")
 	}
 
+	router.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong!")
+	})
+
 	router.GET("/do-stuff", func(c *gin.Context) {
 		n, err := numberFromServiceB(serviceB)
 		if err != nil {
