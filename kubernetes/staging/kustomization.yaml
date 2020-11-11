@@ -13,6 +13,7 @@ patchesJson6902:
 resources:
   - deploy.yml
   - ingress.yml
+  - gitlab-registry-secret.yml
 
 configMapGenerator:
   - envs:
