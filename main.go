@@ -26,6 +26,7 @@ func numberFromServiceB(host string) (int, error) {
 
 func main() {
 	router := gin.Default()
+	router.LoadHTMLGlob("template/*")
 
 	serviceB := os.Getenv("SERVICE_B_HOST")
 	if serviceB == "" {
@@ -33,13 +34,7 @@ func main() {
 	}
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "<html>"+
-			"<ul>"+
-			"<li><a href=\"/ping\">Ping</ping></li>"+
-			"<li><a href=\"/do-stuff\">Show me the stuff</ping></li>"+
-			"</ul>"+
-			"</html>",
-			gin.H{})
+		c.HTML(http.StatusOK, "index.html", gin.H{})
 	})
 
 	router.GET("/ping", func(c *gin.Context) {

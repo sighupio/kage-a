@@ -1,6 +1,7 @@
 FROM golang:1.15.2-buster
 
 COPY ./vendor /app/vendor
+COPY ./template /app/template
 COPY ./go.mod ./go.sum /app/
 COPY ./main.go /app
 WORKDIR /app
