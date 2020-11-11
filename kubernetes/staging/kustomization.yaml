@@ -13,7 +13,6 @@ patchesJson6902:
 resources:
   - deploy.yml
   - ingress.yml
-  - ns.yml
 
 configMapGenerator:
   - envs:
