@@ -19,7 +19,8 @@ spec:
         app: one-a
         project: one-a
     spec:
-      imagePullSecrets: gitlab_registry
+      imagePullSecrets:
+        - name: gitlab_registry
       containers:
         - name: one-a
           image: reg.sighup.io/kage/one-a:latest
